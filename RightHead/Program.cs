@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -27,6 +28,13 @@ namespace RightHead
 						var body = ea.Body;
 						var message = Encoding.UTF8.GetString(body);
 						Console.WriteLine("  Received {0}", message);
+						Thread.Sleep(1200);
+						Console.WriteLine("Retrieving data for {0}", message);
+						Thread.Sleep(1450);
+						Console.WriteLine("Doing some processing for {0}", message);
+						Thread.Sleep(2500);
+						Console.WriteLine("Sending emails for {0}", message);
+						Console.WriteLine("All done with {0}", message);
 					}
 				}
 			}
